@@ -20,6 +20,22 @@ function division(a, b){
 division(10, 3).then(data => {
     console.log("Result division:", data);
     console.log(".................");
+
+    division(10, 4).then(data => {
+        console.log("Result division:", data);
+        console.log(".................");
+
+
+    division(20, 7).then(data => {
+        console.log("Result division:", data);
+        console.log(".................");
+    }).catch(err => {
+        console.log("Error division:", err);
+    });
+    }).catch(err => {
+        console.log("Error division:", err);
+    });
+    
 }).catch(err => {
     console.log("Error division:", err);
 });

@@ -12,10 +12,30 @@ function division(a, b, callback){
     }
 }
 // call 
-division(7, 4, function(err, data){
+division(10, 3, function(err, data){
     if(err) console.log("Error:", err);
     else{
         console.log("Result:", data);
         console.log(".................");
+
+
+        division(10, 4, function(err, data){
+            if(err) console.log("Error:", err);
+            else{
+                console.log("Result:", data);
+                console.log(".................");
+
+
+                division(20, 7, function(err, data){
+                    if(err) console.log("Error:", err);
+                    else{
+                        console.log("Result:", data);
+                        console.log(".................");
+                    }
+                });
+
+
+            }
+        });
     }
 });
