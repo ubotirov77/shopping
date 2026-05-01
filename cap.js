@@ -1,41 +1,26 @@
 /* Asynchronous function : Async vs promise
 define           call
 callback       callback 
-async/await    then/catch
+async/await    then/catch & async/await
 promise        then/catch
 */
 // define 
-function division(a, b){
-    return new Promise((resolve, reject) => {
+async function division(a, b){
     if(b === 0){
-        reject("Not devided by zero");
+        throw new Error("Not devided by zero");
     } else{
-        setInterval(() => {
-            resolve(a % b);
-        }, 5000);
+        return a % b;
     }
-});
 }
-// call
-division(10, 3).then(data => {
-    console.log("Result division:", data);
-    console.log(".................");
 
-    division(10, 4).then(data => {
-        console.log("Result division:", data);
-        console.log(".................");
+async function run(){
+    let result = await division(10, 3);
+    console.log("Result 1:", result);
 
+    result = await division(10, 4);
+    console.log("Result 2:", result);
 
-    division(20, 7).then(data => {
-        console.log("Result division:", data);
-        console.log(".................");
-    }).catch(err => {
-        console.log("Error division:", err);
-    });
-    }).catch(err => {
-        console.log("Error division:", err);
-    });
-    
-}).catch(err => {
-    console.log("Error division:", err);
-});
+    result = await division(20, 7);
+    console.log("Result 3:", result);
+}
+run();
