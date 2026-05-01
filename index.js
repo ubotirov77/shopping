@@ -31,7 +31,7 @@ class Account {
   
   const myAccount = new Account('Norman',1000);
   
-  console.log('==== 1 =====');
+  console.log('==== 2 =====');
   
   myAccount.deposit(7000);
   myAccount.checkBalance();
